@@ -4,6 +4,8 @@
  */
 package com.mycompany.restaurantmanagerment.Main;
 
+import com.mycompany.restaurantmanagerment.Controller.ConnectDB;
+
 /**
  *
  * @author FX Long
@@ -11,6 +13,7 @@ package com.mycompany.restaurantmanagerment.Main;
 public class MainClass {
     
     public static void main(String args[]){
-        
+        ConnectDB con = new ConnectDB();
+        con.getConnect();
     }
 }
