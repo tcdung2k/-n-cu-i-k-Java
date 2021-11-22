@@ -33,6 +33,14 @@ public class Category {
         return Name;
     }
 
+    @Override
+    public String toString() {
+        return "Category{" +
+                "Id=" + Id +
+                ", Name='" + Name + '\'' +
+                '}';
+    }
+
     public void setName(String Name) {
         this.Name = Name;
     }

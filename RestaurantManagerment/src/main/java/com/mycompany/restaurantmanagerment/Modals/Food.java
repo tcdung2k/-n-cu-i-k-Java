@@ -13,7 +13,36 @@ public class Food {
     private int Id;
     private String Name;
     private int Price;
-    private int Categoty;
+    private int Category;
+    private String CategoryName;
+    private String Description;
+
+    public Food(int id, String name, int price, int category, String categoryName, String description, String image) {
+        Id = id;
+        Name = name;
+        Price = price;
+        Category = category;
+        CategoryName = categoryName;
+        Description = description;
+        Image = image;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getCategoryName() {
+        return CategoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        CategoryName = categoryName;
+    }
+
     private String Image;
 
     public int getId() {
@@ -40,16 +69,29 @@ public class Food {
         this.Price = Price;
     }
 
-    public int getCategoty() {
-        return Categoty;
+    public int getCategory() {
+        return Category;
     }
 
-    public void setCategoty(int Categoty) {
-        this.Categoty = Categoty;
+    public void setCategory(int Category) {
+        this.Category = Category;
     }
 
     public String getImage() {
         return Image;
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "Id=" + Id +
+                ", Name='" + Name + '\'' +
+                ", Price=" + Price +
+                ", Category=" + Category +
+                ", CategoryName='" + CategoryName + '\'' +
+                ", Description='" + Description + '\'' +
+                ", Image='" + Image + '\'' +
+                '}';
     }
 
     public void setImage(String Image) {
@@ -58,18 +100,27 @@ public class Food {
     
     
 
-    public Food(int Id, String Name, int Price, int Categoty) {
+    public Food(int Id, String Name, int Price, int Category) {
         this.Id = Id;
         this.Name = Name;
         this.Price = Price;
-        this.Categoty = Categoty;
+        this.Category = Category;
     }
 
-    public Food(int Id, String Name, int Price, int Categoty, String Image) {
+    public Food(int id, String name, int price, int category, String categoryName, String image) {
+        Id = id;
+        Name = name;
+        Price = price;
+        Category = category;
+        CategoryName = categoryName;
+        Image = image;
+    }
+
+    public Food(int Id, String Name, int Price, int Category, String Image) {
         this.Id = Id;
         this.Name = Name;
         this.Price = Price;
-        this.Categoty = Categoty;
+        this.Category = Category;
         this.Image = Image;
     }
 

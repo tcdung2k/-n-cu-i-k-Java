@@ -34,19 +34,20 @@ public class ConnectDB {
         try {
 
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection connection = DriverManager.getConnection(connectionUrl);
+            connect = DriverManager.getConnection(connectionUrl);
             System.out.println("Kết nối thành công!");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
     }
 
     public void closeConnect(){
-        if(connect != null);
+        if(connect != null) {
             connect = null;
+        }
+        System.out.println("Đã ngắt kết nối");
     }
     
 }
