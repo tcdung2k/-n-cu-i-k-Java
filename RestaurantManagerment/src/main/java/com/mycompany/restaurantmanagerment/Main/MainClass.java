@@ -5,6 +5,7 @@
 package com.mycompany.restaurantmanagerment.Main;
 
 import com.mycompany.restaurantmanagerment.Controller.ConnectDB;
+import com.mycompany.restaurantmanagerment.View.LoginApp;
 
 /**
  *
@@ -12,8 +13,12 @@ import com.mycompany.restaurantmanagerment.Controller.ConnectDB;
  */
 public class MainClass {
     
-    public static void main(String args[]){
+    public static void main(String[] args){
         ConnectDB con = new ConnectDB();
         con.getConnect();
+
+        new LoginApp();
+
+
     }
 }
