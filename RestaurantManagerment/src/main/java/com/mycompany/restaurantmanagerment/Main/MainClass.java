@@ -4,7 +4,11 @@
  */
 package com.mycompany.restaurantmanagerment.Main;
 
-import com.mycompany.restaurantmanagerment.Controller.ConnectDB;
+
+
+import java.sql.SQLException;
+import java.util.List;
+
 
 /**
  *
@@ -12,8 +16,8 @@ import com.mycompany.restaurantmanagerment.Controller.ConnectDB;
  */
 public class MainClass {
     
-    public static void main(String args[]){
-        ConnectDB con = new ConnectDB();
-        con.getConnect();
+    public static void main(String args[]) throws SQLException {
+
+
     }
 }
