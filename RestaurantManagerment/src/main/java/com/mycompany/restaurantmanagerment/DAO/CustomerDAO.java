@@ -1,4 +1,5 @@
 package com.mycompany.restaurantmanagerment.DAO;
+
 import com.mycompany.restaurantmanagerment.Controller.ConnectDB;
 import com.mycompany.restaurantmanagerment.Modals.Customer;
 
@@ -42,7 +43,7 @@ public class CustomerDAO {
                 String email = rs.getString("Email");
 
 
-                Customer cus = new Customer(Id, name,age, sex, address, phone, email);
+                Customer cus = new Customer(Id, name, age, sex, address, phone, email);
 
                 lstCustomer.add(cus);
             }
@@ -55,42 +56,13 @@ public class CustomerDAO {
 
         return lstCustomer;
     }
-    //     insert Customer
-    public void InsertCustomer(String name, int age, int sex, String address, String phone, String email) {
-
-        conn.getConnect();
-
-        try {
-
-            String query = "INSERT INTO Customers VALUES(?,?,?,?,?,?)";
-
-            PreparedStatement stmt = conn.connect.prepareStatement(query);
-            stmt.setString(1, name);
-            stmt.getInt(2, age);
-            stmt.getInt(3, sex);
-            stmt.getString(4, address);
-            stmt.getString(5, phone);
-            stmt.getString(6, email);
-
-            stmt.executeUpdate();
-
-            System.out.println("Inserted: " + name);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
-        } finally {
-            conn.closeConnect();
-        }
-
-    }
     //    get customer by id
     public Customer getCustomerybyId(int id) {
 
-        conn.getConnect();
-
         Customer cus = new Customer();
-
+        
+        conn.getConnect();
+        
         try {
             Statement stmt = conn.connect.createStatement();
             String query = "SELECT * FROM Customers WHERE Id = " + id;
@@ -106,7 +78,7 @@ public class CustomerDAO {
                 String phone = rs.getString("Phone");
                 String email = rs.getString("Email");
 
-                Customer cus = new Customer(Id, name,age, sex, address, phone, email);
+                cus = new Customer(Id, name, age, sex, address, phone, email);
 
             }
         } catch (SQLException e) {
@@ -115,31 +87,60 @@ public class CustomerDAO {
         } finally {
             conn.closeConnect();
         }
-
         return cus;
     }
-
-    //    update customer
-    public void updateCustomerById(int id, String name, int age, int sex, String address, String phone, String email){
+    //     insert Customer
+    public void InsertCustomer( String name, int age, int sex, String address, String phone, String email) {
 
         conn.getConnect();
 
         try {
 
-            String query = "UPDATE Customers SET  Name = ?, SET Age = ?, SET Gender = ?" +
-                    "SET Address = ?, SET Phone = ?, SET Email = ?" +
-                    " WHERE Id =  ?";
+            String query = "INSERT INTO Customers VALUES(?,?,?,?,?,?)";
 
             PreparedStatement stmt = conn.connect.prepareStatement(query);
-            stmt.setString(1,name);
-            stmt.getInt(2, age);
-            stmt.getInt(3, sex);
-            stmt.getString(4, address);
-            stmt.getString(5, phone);
-            stmt.getString(6, email);
+            stmt.setString(1, name);
+            stmt.setInt(2, age);
+            stmt.setInt(3, sex);
+            stmt.setString(4, address);
+            stmt.setString(5, phone);
+            stmt.setString(6, email);
+
             stmt.executeUpdate();
 
-            System.out.println("Update complete " + name);
+            System.out.println("Inserted: " + name);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Lỗi truy vấn");
+        } finally {
+            conn.closeConnect();
+        }
+
+    }
+    //    update customer
+    public void updateCustomerById(Customer cus){
+
+        conn.getConnect();
+
+        try {
+
+            String query = "UPDATE Customers SET Name = ?, Age = ?, Gender = ?" +
+                    "Address = ?, Phone = ?, Email = ?" +
+                    "WHERE Id = ?";
+
+            PreparedStatement stmt = conn.connect.prepareStatement(query);
+            
+            stmt.setString(1, cus.getName());
+            stmt.setInt(2, cus.getAge());
+            stmt.setInt(3, cus.getSex());
+            stmt.setString(4, cus.getAddress());
+            stmt.setString(5, cus.getPhone());
+            stmt.setString(6, cus.getEmail());
+            stmt.setInt(7, cus.getCustomerId());
+            stmt.executeUpdate();
+
+            System.out.println("Update complete " + cus.getName());
 
         } catch (SQLException e) {
             e.printStackTrace();
