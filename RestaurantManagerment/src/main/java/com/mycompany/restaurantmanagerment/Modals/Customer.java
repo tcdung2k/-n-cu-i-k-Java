@@ -25,7 +25,7 @@ public class Customer implements Serializable{ // co the luu toan bo doi tuong l
         this.age = age;
         this.sex = sex;
         this.address = address;
-        this.status = phone;
+        this.phone = phone;
         this.email = email;
 
     }
