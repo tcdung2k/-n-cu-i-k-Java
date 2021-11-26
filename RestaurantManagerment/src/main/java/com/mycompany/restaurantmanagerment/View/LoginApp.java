@@ -5,10 +5,9 @@
 package com.mycompany.restaurantmanagerment.View;
 
 import com.mycompany.restaurantmanagerment.DAO.AccountDAO;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+
+
+
 import javax.swing.JOptionPane;
 
 /**
@@ -23,12 +22,7 @@ public class LoginApp extends javax.swing.JFrame {
     public LoginApp() {
         initComponents();
         this.setLocationRelativeTo(null);
-        String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=restaurant";
-        String user = "sa";
-        String password = "123";
-        Statement st;
-        ResultSet rs; 
+      
     }
 
     /**
@@ -166,64 +160,29 @@ public class LoginApp extends javax.swing.JFrame {
 
     private void btndnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndnActionPerformed
         // TODO add your handling code here:
-        try{
-            AccountDAO a = new AccountDAO();
-            if(txtdn.getText().equals("")||jfpass.getText().equals("")){
-                JOptionPane.showMessageDialog(this,"Invalid username and password");
 
-                
-            }
-            else if(a.LoginSuccess(txtdn.getText(), jfpass.getText())){//rs.next()
+        AccountDAO a = new AccountDAO();
+        if(txtdn.getText().equals("")||jfpass.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"Invalid username and password");
 
-                this.dispose();
-                //JOptionPane.showMessageDialog(this,"đăng nhập thành công");
-                Home jf = new Home();
-                jf.show();
-
-            }
-            else{
-                 JOptionPane.showMessageDialog(this,"Username or password incorrect");
-            }
-            
-        }catch(Exception e){
-             JOptionPane.showMessageDialog(this,"Error Database");
         }
+        else if(a.LoginSuccess(txtdn.getText(), jfpass.getText())){//rs.next()
+
+            this.dispose();
+            JOptionPane.showMessageDialog(this,"Success, Please wait");
+            Home jf = new Home();
+            jf.setVisible(true);
+
+        }
+        else{
+             JOptionPane.showMessageDialog(this,"Username or password incorrect");
+        }
+            
     }//GEN-LAST:event_btndnActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginApp().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btndn;

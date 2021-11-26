@@ -29,17 +29,19 @@ public class AccountDAO {
 
         try {
             Statement stmt = conn.connect.createStatement();
-            String query = "SELECT * FROM Account WHERE  UserName = \'" +
+            String query = "SELECT * FROM Account WHERE  Username = '" +
                     UserName + "\' AND " + "Password = \'" + Password + "\'";
 
             ResultSet rs = stmt.executeQuery(query);
+            
+            System.out.println(query);
 
             if (rs.next()) {
                 int Id = rs.getInt("Id");
                 boolean level = (Integer.parseInt(rs.getString("Level")) != 0);
 
                 acc = new Account(Id, UserName,Password,level);
-
+                System.out.println(acc.getId());
             }
         } catch (SQLException e) {
             e.printStackTrace();
