@@ -6,7 +6,7 @@ package com.mycompany.restaurantmanagerment.Main;
 
 
 
-import com.mycompany.restaurantmanagerment.View.Home;
+import com.mycompany.restaurantmanagerment.View.MainForm;
 import com.mycompany.restaurantmanagerment.View.LoginApp;
 import java.sql.SQLException;
 import java.util.List;

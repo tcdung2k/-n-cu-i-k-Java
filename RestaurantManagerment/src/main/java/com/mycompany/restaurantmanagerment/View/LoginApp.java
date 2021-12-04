@@ -170,7 +170,7 @@ public class LoginApp extends javax.swing.JFrame {
 
             this.dispose();
             JOptionPane.showMessageDialog(this,"Success, Please wait");
-            Home jf = new Home();
+            MainForm jf = new MainForm();
             jf.setVisible(true);
 
         }
