@@ -67,23 +67,22 @@
     <Component class="javax.swing.JButton" name="Home">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Java\-n-cu-i-k-Java\RestaurantManagerment\src\main\java\com\mycompany\restaurantmanagerment\Image\home_icon.png"/>
+          <Image iconType="3" name="/images/home_icon.png"/>
         </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-        <Property name="focusable" type="boolean" value="false"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HomeActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MainForm_Home"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="Table">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Java\-n-cu-i-k-Java\RestaurantManagerment\src\main\java\com\mycompany\restaurantmanagerment\Image\table_icon.png"/>
+          <Image iconType="3" name="/images/table_icon.png"/>
         </Property>
       </Properties>
       <Events>
@@ -93,7 +92,7 @@
     <Component class="javax.swing.JButton" name="Bill">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Java\-n-cu-i-k-Java\RestaurantManagerment\src\main\java\com\mycompany\restaurantmanagerment\Image\bill_icon.png"/>
+          <Image iconType="3" name="/images/bill_icon.png"/>
         </Property>
       </Properties>
       <Events>
@@ -103,7 +102,7 @@
     <Component class="javax.swing.JButton" name="Food">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Java\-n-cu-i-k-Java\RestaurantManagerment\src\main\java\com\mycompany\restaurantmanagerment\Image\food_icon.png"/>
+          <Image iconType="3" name="/images/food_icon.png"/>
         </Property>
       </Properties>
       <Events>
@@ -113,7 +112,7 @@
     <Component class="javax.swing.JButton" name="Customer">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Java\-n-cu-i-k-Java\RestaurantManagerment\src\main\java\com\mycompany\restaurantmanagerment\Image\customer_icon.png"/>
+          <Image iconType="3" name="/images/customer_icon.png"/>
         </Property>
       </Properties>
       <Events>
@@ -123,7 +122,7 @@
     <Component class="javax.swing.JButton" name="Account">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\Java\-n-cu-i-k-Java\RestaurantManagerment\src\main\java\com\mycompany\restaurantmanagerment\Image\account_icon.png"/>
+          <Image iconType="3" name="/images/account_icon.png"/>
         </Property>
       </Properties>
       <Events>

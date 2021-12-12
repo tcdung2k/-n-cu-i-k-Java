@@ -16,7 +16,7 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,9 +35,7 @@ public class MainForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Home.setIcon(new javax.swing.ImageIcon("D:\\Java\\-n-cu-i-k-Java\\RestaurantManagerment\\src\\main\\java\\com\\mycompany\\restaurantmanagerment\\Image\\home_icon.png")); // NOI18N
-        Home.setBorder(null);
-        Home.setFocusable(false);
+        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_icon.png"))); // NOI18N
         Home.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Home.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Home.addActionListener(new java.awt.event.ActionListener() {
@@ -46,35 +44,35 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        Table.setIcon(new javax.swing.ImageIcon("D:\\Java\\-n-cu-i-k-Java\\RestaurantManagerment\\src\\main\\java\\com\\mycompany\\restaurantmanagerment\\Image\\table_icon.png")); // NOI18N
+        Table.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/table_icon.png"))); // NOI18N
         Table.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TableActionPerformed(evt);
             }
         });
 
-        Bill.setIcon(new javax.swing.ImageIcon("D:\\Java\\-n-cu-i-k-Java\\RestaurantManagerment\\src\\main\\java\\com\\mycompany\\restaurantmanagerment\\Image\\bill_icon.png")); // NOI18N
+        Bill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bill_icon.png"))); // NOI18N
         Bill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BillActionPerformed(evt);
             }
         });
 
-        Food.setIcon(new javax.swing.ImageIcon("D:\\Java\\-n-cu-i-k-Java\\RestaurantManagerment\\src\\main\\java\\com\\mycompany\\restaurantmanagerment\\Image\\food_icon.png")); // NOI18N
+        Food.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/food_icon.png"))); // NOI18N
         Food.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FoodActionPerformed(evt);
             }
         });
 
-        Customer.setIcon(new javax.swing.ImageIcon("D:\\Java\\-n-cu-i-k-Java\\RestaurantManagerment\\src\\main\\java\\com\\mycompany\\restaurantmanagerment\\Image\\customer_icon.png")); // NOI18N
+        Customer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer_icon.png"))); // NOI18N
         Customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CustomerActionPerformed(evt);
             }
         });
 
-        Account.setIcon(new javax.swing.ImageIcon("D:\\Java\\-n-cu-i-k-Java\\RestaurantManagerment\\src\\main\\java\\com\\mycompany\\restaurantmanagerment\\Image\\account_icon.png")); // NOI18N
+        Account.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/account_icon.png"))); // NOI18N
         Account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AccountActionPerformed(evt);
