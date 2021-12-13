@@ -13,6 +13,10 @@ public class Table {
     public Table() {
     }
 
+    public Table(String name) {
+        this.name = name;
+    }
+
     public Table(int id, String name) {
         Id = id;
         this.name = name;
