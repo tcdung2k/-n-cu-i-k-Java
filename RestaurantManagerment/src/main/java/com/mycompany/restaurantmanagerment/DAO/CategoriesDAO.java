@@ -12,7 +12,6 @@ import java.util.List;
 
 public class CategoriesDAO {
 
-    Category category;
     ConnectDB conn;
 
     public CategoriesDAO() {
@@ -44,7 +43,7 @@ public class CategoriesDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
@@ -71,7 +70,7 @@ public class CategoriesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
@@ -100,11 +99,41 @@ public class CategoriesDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
 
+        return cate;
+    }
+
+    public Category getCategorybyName(String name) {
+
+        conn.getConnect();
+
+        Category cate = new Category();
+
+        try {
+            Statement stmt = conn.connect.createStatement();
+            String query = "SELECT * FROM Categories WHERE Name = \'" + name + "\'";
+
+            System.out.println(query);
+
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                int Id = rs.getInt("Id");
+                String nameCate = rs.getString("Name");
+
+                cate = new Category(Id, nameCate);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
         return cate;
     }
 
@@ -126,7 +155,7 @@ public class CategoriesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
@@ -152,7 +181,7 @@ public class CategoriesDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
