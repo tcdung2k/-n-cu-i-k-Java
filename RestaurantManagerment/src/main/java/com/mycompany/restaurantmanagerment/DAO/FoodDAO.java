@@ -21,6 +21,39 @@ public class FoodDAO {
 
     //get food by name
 
+    public List<Food> searchFood(String sql){
+
+        List<Food> lstFood = new ArrayList<>();
+        conn.getConnect();
+
+        try {
+
+            Statement stmt = conn.connect.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Food food = new Food();
+                food.setId(rs.getInt(1));
+                food.setName(rs.getString(2));
+                food.setCategory(rs.getInt(3));
+                food.setCategoryName(rs.getString(4));
+                food.setPrice(rs.getInt(5));
+                food.setDescription(rs.getString(6));
+                food.setImage(rs.getString(7));
+
+                lstFood.add(food);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
+
+        return lstFood;
+    }
+
     public  List<Food> getAllFood(){
 
         List<Food> lstFood = new ArrayList<>();
@@ -49,12 +82,45 @@ public class FoodDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
 
         return lstFood;
+    }
+
+    public Food searchFoodById(int id){
+        conn.getConnect();
+        Food food = new Food();
+        try {
+
+            String query = "SELECT A.Id, A.Name , B.Id, B.Name, Price, description, Image " +
+                    "FROM Foods A JOIN Categories B ON A.Category = B.Id " +
+                    "WHERE A.Id = " + id;
+
+            Statement stmt = conn.connect.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+
+                food.setId(rs.getInt(1));
+                food.setName(rs.getString(2));
+                food.setCategory(rs.getInt(3));
+                food.setCategoryName(rs.getString(4));
+                food.setPrice(rs.getInt(5));
+                food.setDescription(rs.getString(6));
+                food.setImage(rs.getString(7));
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
+        return food;
     }
 
     public List<Food> searchFoodByName(String name){
@@ -86,7 +152,7 @@ public class FoodDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
@@ -125,7 +191,7 @@ public class FoodDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
@@ -135,7 +201,7 @@ public class FoodDAO {
 
     //Insert Food
 
-    public void insertFood(Food food){
+    public boolean insertFood(Food food){
 
         conn.getConnect();
 
@@ -153,24 +219,26 @@ public class FoodDAO {
 
             stmt.executeUpdate();
 
-            System.out.println("insert Complete: " + food.getName());
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
+
+        return  false;
     }
 
-    public void updateFood(Food food){
+    public boolean updateFood(Food food){
 
         conn.getConnect();
 
         try {
 
-            String query = "UPDATE Foods SET Name = ? , Category = ? , Price = ? ," +
-                    " description = ?, Image = ? " +
+            String query = "UPDATE Foods SET Name = ? , Category = ? , Price = ? , Image = ?, " +
+                    " description = ? " +
                     "WHERE  Id = ?";
 
             PreparedStatement stmt = conn.connect.prepareStatement(query);
@@ -178,23 +246,25 @@ public class FoodDAO {
             stmt.setString(1, food.getName());
             stmt.setInt(2, food.getCategory());
             stmt.setInt(3,food.getPrice());
-            stmt.setString(4, food.getDescription());
-            stmt.setString(5,food.getImage());
+            stmt.setString(4,food.getImage());
+            stmt.setString(5, food.getDescription());
             stmt.setInt(6,food.getId());
 
-            stmt.executeUpdate();
 
-            System.out.println("Update Complete: " + food.getName());
+            stmt.executeUpdate();
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
+
         } finally {
             conn.closeConnect();
         }
+
+        return false;
     }
 
-    public void deleteFood(int id){
+    public boolean deleteFood(int id){
 
         conn.getConnect();
 
@@ -210,12 +280,15 @@ public class FoodDAO {
 
             System.out.println("Deleted: " + id);
 
+            return true;
+
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Lỗi truy vấn");
         } finally {
             conn.closeConnect();
         }
+        return false;
     }
 
 }

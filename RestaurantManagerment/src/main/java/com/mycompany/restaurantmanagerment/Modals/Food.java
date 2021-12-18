@@ -16,6 +16,7 @@ public class Food {
     private int Category;
     private String CategoryName;
     private String Description;
+    private String Image;
 
     public Food(int id, String name, int price, int category, String categoryName, String description, String image) {
         Id = id;
@@ -43,7 +44,6 @@ public class Food {
         CategoryName = categoryName;
     }
 
-    private String Image;
 
     public int getId() {
         return Id;
