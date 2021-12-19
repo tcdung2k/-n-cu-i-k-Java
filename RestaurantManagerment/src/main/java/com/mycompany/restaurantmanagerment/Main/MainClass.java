@@ -9,7 +9,7 @@ package com.mycompany.restaurantmanagerment.Main;
 import com.mycompany.restaurantmanagerment.View.MainForm;
 import com.mycompany.restaurantmanagerment.View.LoginApp;
 import java.sql.SQLException;
-
+import java.util.List;
 
 /**
  *
@@ -22,7 +22,7 @@ public class MainClass {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainForm().setVisible(true);
+                new LoginApp().setVisible(true);
             }
         });
 
