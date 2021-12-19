@@ -11,7 +11,6 @@ import com.mycompany.restaurantmanagerment.View.LoginApp;
 import java.sql.SQLException;
 import java.util.List;
 
-
 /**
  *
  * @author FX Long
