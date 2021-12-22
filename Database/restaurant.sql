@@ -38,7 +38,7 @@ CREATE TABLE `account` (
 -- Đang đổ dữ liệu cho bảng `account`
 --
 
-INSERT INTO `account` (`Id`, `username`, `password`, `level`) VALUES
+INSERT INTO `Account` (`Id`, `username`, `password`, `level`) VALUES
 (1, 'admin', 'admin', 0),
 (2, 'admin1', 'admin1', 0);
 
