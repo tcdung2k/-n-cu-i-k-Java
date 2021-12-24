@@ -6,6 +6,8 @@ package com.mycompany.restaurantmanagerment.DAO;
 
 import com.mycompany.restaurantmanagerment.Controller.ConnectDB;
 import com.mycompany.restaurantmanagerment.Modals.Account;
+import com.mycompany.restaurantmanagerment.Modals.Food;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -60,6 +62,34 @@ public class AccountDAO {
         if (acc == null)
             return false;
         return true;
+    }
+    public boolean insertAccount(Account account){
+
+        conn.getConnect();
+
+        try {
+
+            String query = "INSERT  INTO Account VALUES(?,?,?)";
+
+            PreparedStatement stmt = conn.connect.prepareStatement(query);
+
+            stmt.setString(1, account.getUserName());
+            stmt.setString(2, account.getPassword());
+            stmt.setBoolean(3,account.isLevel());
+
+
+            stmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
+
+        return  false;
     }
     
     

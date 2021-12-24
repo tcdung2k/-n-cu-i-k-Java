@@ -4,6 +4,8 @@
  */
 package com.mycompany.restaurantmanagerment.View;
 
+import com.mycompany.restaurantmanagerment.Modals.Account;
+
 /**
  *
  * @author ADMIN
@@ -16,7 +18,16 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
     }
-    
+    public MainForm(Account ac){
+         initComponents();
+         if(ac.isLevel() == true){
+         }
+         else{
+             Account.setVisible(false);
+             Customer.setVisible(false);
+             
+         }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
