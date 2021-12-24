@@ -182,6 +182,54 @@ public class TableDAO {
 
         return tb;
     }
-     
+
+
+
+    public boolean updateActiveTable(int idTb){
+        try{
+            conn.getConnect();
+
+            String query = "UPDATE Tables SET Status = 1  WHERE  Id = ?";
+
+            PreparedStatement stmt = conn.connect.prepareStatement(query);
+
+            stmt.setInt(1, idTb);
+
+            stmt.executeUpdate();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return false;
+
+    }
+
+    public boolean tablePayment(int id){
+
+        conn.getConnect();
+
+        try {
+
+            String query = "UPDATE  Tables SET Status = 0 WHERE Id = ? ";
+
+            PreparedStatement stmt = conn.connect.prepareStatement(query);
+
+            stmt.setInt(1,id);
+
+            stmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
+
+        return  false;
+    }
 
 }

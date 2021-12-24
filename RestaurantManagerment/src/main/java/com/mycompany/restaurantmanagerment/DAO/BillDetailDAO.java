@@ -190,5 +190,35 @@ public class BillDetailDAO {
         return false;
     }
 
+    public int getTotalPriceByBill(int idBill) {
+
+        int result = 0;
+
+        try {
+            conn.getConnect();
+            Statement stmt = conn.connect.createStatement();
+
+            String query = "select Total From OrderDetail where OrderId = " + idBill;
+
+            System.out.println(query);
+
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+
+                int price = rs.getInt("Total");
+
+                result += price;
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
+        System.out.println("total = " + result);
+        return result;
+    }
 
 }

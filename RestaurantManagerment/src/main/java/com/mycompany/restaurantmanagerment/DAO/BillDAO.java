@@ -7,6 +7,8 @@ package com.mycompany.restaurantmanagerment.DAO;
 import com.mycompany.restaurantmanagerment.Controller.ConnectDB;
 import com.mycompany.restaurantmanagerment.Modals.Bill;
 import com.mycompany.restaurantmanagerment.Modals.Table;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -86,6 +88,7 @@ public class BillDAO {
 
                  bill = new Bill(Id, idCustom,idTb,day,total,sttus);
 
+                 System.out.println(bill);
             }
 
         }
@@ -170,5 +173,85 @@ public class BillDAO {
         }
         return lstBill;
           }
+
+    public boolean insertBill(int customerId, int idTable) {
+
+        conn.getConnect();
+
+        try {
+
+            String query = "INSERT  INTO Orders (CustomerId,TableId,Total) values(?,?, 0)";
+
+            PreparedStatement stmt = conn.connect.prepareStatement(query);
+
+            stmt.setInt(1,customerId);
+            stmt.setInt(2,idTable);
+
+            stmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
+
+        return  false;
+    }
+
+    public boolean updateBillTotal(int id ,int total){
+
+        conn.getConnect();
+
+        try {
+
+            String query = "UPDATE  Orders SET Total = ? WHERE Id = ? ";
+
+            PreparedStatement stmt = conn.connect.prepareStatement(query);
+
+            stmt.setInt(1,total);
+            stmt.setInt(2,id);
+
+            stmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
+
+        return  false;
+    }
+
+    public boolean billPayment(int id){
+
+        conn.getConnect();
+
+        try {
+
+            String query = "UPDATE  Orders SET Status = 1 WHERE Id = ? ";
+
+            PreparedStatement stmt = conn.connect.prepareStatement(query);
+
+            stmt.setInt(1,id);
+
+            stmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
+
+        return  false;
+    }
 }
 
