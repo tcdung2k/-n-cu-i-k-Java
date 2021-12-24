@@ -151,5 +151,37 @@ public class TableDAO {
 
         return lstTable;
     }
+     public Table searchTableById(int tbId){
+            Table tb = new Table();
+       
+            conn.getConnect();
+
+        
+
+        try {
+            Statement stmt = conn.connect.createStatement();
+
+            String query = "SELECT * FROM Tables WHERE Id = " + tbId  + "" ;
+
+            System.out.println(query);
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                int Id = rs.getInt("Id");
+                String name = rs.getString("Name");
+                int status = rs.getInt("Status");
+
+
+              
+                 tb = new Table(Id, name,status );
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return tb;
+    }
+     
 
 }

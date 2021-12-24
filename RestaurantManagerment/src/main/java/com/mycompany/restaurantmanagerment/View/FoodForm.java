@@ -276,11 +276,7 @@ public class FoodForm extends javax.swing.JFrame {
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    btnAddActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -289,11 +285,7 @@ public class FoodForm extends javax.swing.JFrame {
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    btnEditActionPerformed(evt);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                btnEditActionPerformed(evt);
             }
         });
 

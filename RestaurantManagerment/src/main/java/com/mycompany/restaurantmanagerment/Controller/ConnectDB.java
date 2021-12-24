@@ -16,7 +16,7 @@ public class ConnectDB {
 
     private String database = "restaurant";
     private String username = "sa";
-    private String password = "danglong719";;
+    private String password = "123";;
 
     private String connectionUrl = "jdbc:sqlserver://localhost:1433;"
                             + "databaseName=" + database
