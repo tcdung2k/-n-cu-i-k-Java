@@ -119,37 +119,37 @@ public class MainForm extends javax.swing.JFrame {
 
     private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
         // TODO add your handling code here:
-        new Home().setVisible(true);
+        new MainForm().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_HomeActionPerformed
 
     private void TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TableActionPerformed
         // TODO add your handling code here:
-        new Table().setVisible(true);
+        new TableForm().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_TableActionPerformed
 
     private void BillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillActionPerformed
         // TODO add your handling code here:
-        new Bill().setVisible(true);
+        new BillForm().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BillActionPerformed
 
     private void FoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FoodActionPerformed
         // TODO add your handling code here:
-        new Food().setVisible(true);
+        new FoodForm().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_FoodActionPerformed
 
     private void CustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerActionPerformed
         // TODO add your handling code here:
-        new Customer().setVisible(true);
+        new CustomerForm().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CustomerActionPerformed
 
     private void AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountActionPerformed
         // TODO add your handling code here:
-        new Account().setVisible(true);
+        new RegisterForm().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_AccountActionPerformed
 
