@@ -535,6 +535,8 @@ public class FoodForm extends javax.swing.JFrame {
 
         int  i = tbFood.getSelectedRow();
         TableModel model = tbFood.getModel();
+
+        int id = (int) model.getValueAt(i,0);
         
         lbId.setText(model.getValueAt(i,0).toString());
         txFoodName.setText(model.getValueAt(i,1).toString());
