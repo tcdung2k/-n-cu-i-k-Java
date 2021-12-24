@@ -151,5 +151,85 @@ public class TableDAO {
 
         return lstTable;
     }
+     public Table searchTableById(int tbId){
+            Table tb = new Table();
+       
+            conn.getConnect();
+
+        
+
+        try {
+            Statement stmt = conn.connect.createStatement();
+
+            String query = "SELECT * FROM Tables WHERE Id = " + tbId  + "" ;
+
+            System.out.println(query);
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                int Id = rs.getInt("Id");
+                String name = rs.getString("Name");
+                int status = rs.getInt("Status");
+
+
+              
+                 tb = new Table(Id, name,status );
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return tb;
+    }
+
+
+
+    public boolean updateActiveTable(int idTb){
+        try{
+            conn.getConnect();
+
+            String query = "UPDATE Tables SET Status = 1  WHERE  Id = ?";
+
+            PreparedStatement stmt = conn.connect.prepareStatement(query);
+
+            stmt.setInt(1, idTb);
+
+            stmt.executeUpdate();
+
+            return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return false;
+
+    }
+
+    public boolean tablePayment(int id){
+
+        conn.getConnect();
+
+        try {
+
+            String query = "UPDATE  Tables SET Status = 0 WHERE Id = ? ";
+
+            PreparedStatement stmt = conn.connect.prepareStatement(query);
+
+            stmt.setInt(1,id);
+
+            stmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            conn.closeConnect();
+        }
+
+        return  false;
+    }
 
 }

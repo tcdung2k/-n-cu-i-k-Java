@@ -11,6 +11,13 @@ package com.mycompany.restaurantmanagerment.Modals;
 public class Food {
     
     private int Id;
+
+    public Food(int id, String name, int price) {
+        Id = id;
+        Name = name;
+        Price = price;
+    }
+
     private String Name;
     private int Price;
     private int Category;
