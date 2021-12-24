@@ -50,9 +50,7 @@ public class CustomerList {
         list.add(ctm);
     }
     public void addlist(List ctm){
-        for (int i = 0; i < ctm.size(); i++){
             list.addAll(ctm);
-        }
     }
     public boolean update(Customer ctm){
         Customer existCtm = findById(ctm.getCustomerId());// tim kiem khach hang trong danh sach dua vao id

@@ -49,7 +49,6 @@ public class CustomerDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
         } finally {
             conn.closeConnect();
         }
@@ -83,14 +82,13 @@ public class CustomerDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
         } finally {
             conn.closeConnect();
         }
         return cus;
     }
     //     insert Customer
-    public void InsertCustomer( String name, int age, int sex, String address, String phone, String email) {
+    public boolean InsertCustomer( String name, int age, int sex, String address, String phone, String email) {
 
         conn.getConnect();
 
@@ -107,19 +105,17 @@ public class CustomerDAO {
             stmt.setString(6, email);
 
             stmt.executeUpdate();
-
-            System.out.println("Inserted: " + name);
-
+            
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
         } finally {
             conn.closeConnect();
         }
-
+        return false;
     }
     //    update customer
-    public void updateCustomerById(Customer cus){
+    public boolean updateCustomerById(Customer cus){
 
         conn.getConnect();
 
@@ -140,15 +136,14 @@ public class CustomerDAO {
             
             stmt.executeUpdate();
 
-            System.out.println("Update complete " + cus.getName());
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
         } finally {
             conn.closeConnect();
         }
-
+        return false;
     }
     //    delete customer
     public boolean deleteCustomerById(int id){
@@ -164,15 +159,14 @@ public class CustomerDAO {
 
             stmt.executeUpdate();
 
-            System.out.println("Deleted: " + id);
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Lỗi truy vấn");
         } finally {
             conn.closeConnect();
         }
-        return true;
+        return false;
     }
 
 }
